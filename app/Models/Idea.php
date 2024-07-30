@@ -27,6 +27,7 @@ class Idea extends Model
 
     // yang bisa diisi oleh user
     protected $fillable = [
+        'user_id',
         'content',
         'like'
     ];
@@ -34,5 +35,10 @@ class Idea extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function user(){
+        // hubungan one to one
+        return $this->belongsTo(User::class);
     }
 }

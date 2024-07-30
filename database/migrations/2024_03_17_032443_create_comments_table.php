@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             // constrained : memastikan user tidak dapat membuat komentar untuk ide yang tidak ada
             // cascadeondelete : jika postingan ide terhapus, otomatis komentar juga akan terhapus
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('idea_id')->constrained()->cascadeOnDelete();
             $table->string('content');        
             $table->timestamps();
